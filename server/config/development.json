@@ -1,0 +1,7 @@
+{
+    "app": {
+    "port": 3000,
+		"name": "ultravoucher",
+		"secretKey": "v0uch3rc3nt3r"
+  }
+}
