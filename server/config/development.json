@@ -1,7 +1,22 @@
 {
     "app": {
-    "port": 3000,
-		"name": "ultravoucher",
-		"secretKey": "v0uch3rc3nt3r"
+      "port": 3000,
+      "host" : "localhost"
+    },
+    "database" : {
+      "host" : "localhost",
+      "dbName" : "simple-app",
+      "user" : "anggraini",
+      "password" : "",
+      "port" : 5432
+    },
+    "axios" : {
+      "timeout" : 40000
+    },
+    "thirdParty" : {
+      "elevenia" : {
+        "baseUrl" : "http://api.elevenia.co.id/rest/",
+        "openapikey" : "721407f393e84a28593374cc2b347a98"
+    }
   }
 }

@@ -2,9 +2,11 @@
 
 import app from './app';
 import config from 'config';
+import {v1Routes} from '../src/routes'
 
 const port = process.env.PORT || config.get('app.port');
-const server = new app.Server({ port, host: 'localhost' });
+const server = new app.Server({ port, host: config.get('app.host') });
+
 
 const serverInfo = async function () {
   try {
@@ -15,8 +17,10 @@ const serverInfo = async function () {
     process.exit(1)
   }
 }
+
+// routes
+server.route(v1Routes.productRoutes)
+
 serverInfo()
 
-export {
-    server
-}
+export default server
