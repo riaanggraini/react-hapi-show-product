@@ -44,19 +44,17 @@ module.exports = ({
 		return query;
     };
     
-    const upsert = (trx = null, data) => {
-		const q = trx || knex;
+      const upsert = (trx, props)=> {
+
+        const q = trx || knex;
 		if (trx) {
 			q.transacting(trx);
         }
-
-		const firstData = data[0] ? data[0] : data;
-		return q.raw(`${knex(tableName).insert(data).toQuery()} ON CONFLICT DO UPDATE ${
-			Object.getOwnPropertyNames(firstData).map(field => `${field}=VALUES(${field})`).join(', ')}`)
-			.then(dbRes => (Object.values(dbRes)[0].insertId)).catch((err) => {
-				throw err;
-			});
-	};
+        const { table, object, constraint} = props;
+        const insert = knex(table).insert(object);
+        const update = knex.queryBuilder().update(object);
+        return q.raw(`? ON CONFLICT ${constraint} DO ? returning *`, [insert, update]).get('rows').get(0);
+      };
 
 	return {
 		name,

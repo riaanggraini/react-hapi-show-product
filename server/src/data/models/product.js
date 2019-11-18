@@ -6,9 +6,9 @@ const tableName = 'product';
 const selectableProps = [
 	'id',
     'name',
-    'id_sku_product',
     'description',
-    'price'
+    'price',
+    'product_no'
 ];
 
 module.exports = (knex) => {
