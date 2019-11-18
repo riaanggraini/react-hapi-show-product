@@ -8,8 +8,7 @@
     "lint": "eslint . --fix",
     "precommit": "lint-staged",
     "build": "babel src -d dist --copy-files",
-    "start": "node dist/server.js",
-    "local": "nodemon --exec babel-node src/server.js"
+    "start": "nodemon --exec babel-node src/server.js"
   },
   "author": "ria anggraini",
   "license": "ISC",

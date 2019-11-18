@@ -102,6 +102,7 @@ const updateProduct = async(req, res)=>{
         return response.success(res, 'update product', resp[0])
 
     }catch(err){
+        console.log(err)
         return response.internalServerError(res, 'while trying to update product', [])
     }
 }

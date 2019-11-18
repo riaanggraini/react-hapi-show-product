@@ -5,7 +5,13 @@ import config from 'config';
 import {v1Routes} from '../src/routes'
 
 const port = process.env.PORT || config.get('app.port');
-const server = new app.Server({ port, host: config.get('app.host') });
+const server = new app.Server(
+  { port, 
+    host: config.get('app.host') ,
+    routes: {
+      cors: true
+  }
+});
 
 
 const serverInfo = async function () {
