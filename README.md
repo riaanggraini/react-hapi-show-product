@@ -77,9 +77,13 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 ### run migration script
 Write in cli `knex migrate:latest`
 
+## install the module
+
+`yarn install` or `npm install` if you are using npm
+
 ## then start the server
 
-`yarn start` or `npm start if you are using npm`
+`yarn start` or `npm start` if you are using npm
 
 Runs the app in the development mode.<br />
 running in [http://localhost:4000]
